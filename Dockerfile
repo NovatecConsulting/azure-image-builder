@@ -1,4 +1,4 @@
-FROM debian:bullseye-20190708-slim AS base
+FROM debian:bullseye-20190708-slim
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
@@ -19,4 +19,5 @@ RUN apt-get update -qq && \
       apt-get update -qq && apt-get install -qqy azure-cli && \
     curl -fsSL https://get.docker.com -o get-docker.sh && \
       sh  get-docker.sh && \
+    curl -fsSL https://get.pulumi.com | sh  && \  
     rm -rf /var/lib/apt/lists/*
